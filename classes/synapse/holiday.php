@@ -49,7 +49,7 @@ class Synapse_Holiday {
 		return array_keys(self::$_derivations);
 	}
 
-	public static function is_observed_holiday(DateTime $date)
+	public static function is_observed_holiday(DateTime $date = date_create())
 	{
 		foreach (self::known_holidays() as $holiday)
 		{
