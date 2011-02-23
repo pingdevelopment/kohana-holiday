@@ -1,1 +1,1 @@
-A very simple Holiday module for Kohana 3.0.x.
+A very simple Holiday module for Kohana 3.0.x.  Requires PHP 5.3+
