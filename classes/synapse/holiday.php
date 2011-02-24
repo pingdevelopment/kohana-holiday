@@ -61,6 +61,18 @@ class Synapse_Holiday {
 		return FALSE;
 	}
 
+	public static function is_holiday(DateTime $date = date_create())
+	{
+		foreach (self::known_holidays() as $holiday)
+		{
+			if ($date->format('Y-m-d') == self::factory($holiday, $date->format('Y'))->format('Y-m-d'))
+			{
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
 	protected $_year;
 	protected $_key;
 
