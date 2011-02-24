@@ -49,8 +49,13 @@ class Synapse_Holiday {
 		return array_keys(self::$_derivations);
 	}
 
-	public static function is_observed_holiday(DateTime $date = date_create())
+	public static function is_observed_holiday(DateTime $date = NULL)
 	{
+		if ( ! $date)
+		{
+			$date = date_create();
+		}
+
 		foreach (self::known_holidays() as $holiday)
 		{
 			if ($date->format('Y-m-d') == self::factory($holiday, $date->format('Y'))->observed('Y-m-d'))
@@ -61,8 +66,13 @@ class Synapse_Holiday {
 		return FALSE;
 	}
 
-	public static function is_holiday(DateTime $date = date_create())
+	public static function is_holiday(DateTime $date = NULL)
 	{
+		if ( ! $date)
+		{
+			$date = date_create();
+		}
+
 		foreach (self::known_holidays() as $holiday)
 		{
 			if ($date->format('Y-m-d') == self::factory($holiday, $date->format('Y'))->format('Y-m-d'))
